@@ -1,0 +1,23 @@
+<head>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+
+<!-- <input type="text" id = "customer">
+<button onclick="submitcustomer()">Search</button> -->
+<input type="text" id="customerin" onkeyup="searchcustomer()" placeholder="Search for names..">
+<table id="customerTable">
+    <tr class="header" id="cheader">
+        <th style="width:60%;">First Name</th>
+        <th style="width:40%;">Last Name</th>
+        <th style="width:40%;">ID</th>
+        <th style="width:40%;">Select</th>
+    </tr> 
+    <tr id="c-1" class = "invisible">
+        <td id="first-1">First</td>
+        <td id="last-1">Last</td>
+        <td id="cid-1">-1</td>
+        <td><input type="radio" id="csel-1"></td>
+    </tr>
+</table>
