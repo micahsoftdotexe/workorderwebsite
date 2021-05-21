@@ -6,18 +6,35 @@
 
 <!-- <input type="text" id = "customer">
 <button onclick="submitcustomer()">Search</button> -->
+<h1>Create Work Order</h1>
+<h2>Select Customer</h2>
 <input type="text" id="customerin" onkeyup="searchcustomer()" placeholder="Search for names..">
 <table id="customerTable">
     <tr class="header" id="cheader">
+        <th style="width:40%;">Select</th>
         <th style="width:60%;">First Name</th>
         <th style="width:40%;">Last Name</th>
         <th style="width:40%;">ID</th>
-        <th style="width:40%;">Select</th>
     </tr> 
-    <tr id="c-1" class = "invisible">
-        <td id="first-1">First</td>
-        <td id="last-1">Last</td>
-        <td id="cid-1">-1</td>
-        <td><input type="radio" id="csel-1"></td>
+    <tr id="c-1" class = "invisible" style="width:60%;">
+        <td><button id="csel-1"style="width:40%;"onclick="selcustomer(this)">+</td>
+        <td id="first-1"style="width:40%;">First</td>
+        <td id="last-1"style="width:40%;">Last</td>
+        <td id="cid-1"style="width:40%;">-1</td>
+    </tr>
+</table>
+<h2>Selected Customer</h2>
+<table id="customerselecttable">
+    <tr class="header" id="cheader">
+        <th style="width:40%;">Deselect</th>
+        <th style="width:60%;">First Name</th>
+        <th style="width:40%;">Last Name</th>
+        <th style="width:40%;">ID</th>
+    </tr> 
+    <tr id="csel-1" class = "invisible" style="width:60%;">
+        <td><button id="csel-1"style="width:40%;"onclick="selcustomer(this)">+</td>
+        <td id="first-1"style="width:40%;">First</td>
+        <td id="last-1"style="width:40%;">Last</td>
+        <td id="cid-1"style="width:40%;">-1</td>
     </tr>
 </table>

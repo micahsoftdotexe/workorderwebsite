@@ -2,16 +2,28 @@
 function makenewcustomer(id, FirstName, LastName){
     var newnode = document.getElementById("c-1").cloneNode(true);
     newnode.id = "c"+id
-    newnode.childNodes.item("first-1").innerHTML = FirstName;
-    console.log(newnode.childNodes.item("first-1").value)
-    newnode.childNodes.item("first-1").id = "first"+id;
-    newnode.childNodes.item("first-2").innerHTML = LastName;
-    newnode.childNodes.item("first-2").id = "last"+id;
-    newnode.childNodes.item("cid-1").innerHTML = id;
-    newnode.childNodes.item("cid-1").id = "cid"+id;
-    newnode.childNodes.item("csel-1").id = "csel" + id;
+    newnode.classList.remove('invisible');
+    newnode.classList.add('visible');
+    for(i=0;i < newnode.childNodes.length; i++){
+        var child = newnode.childNodes[i];
+        if(child.id == "first-1"){
+            child.id = "first"+id;
+            child.innerHTML = FirstName;
 
-    console.log(newnode);
+        }
+        if(child.id == "last-1"){
+            child.id = "last"+id;
+            child.innerHTML = LastName
+        }
+        if(child.id == "cid-1"){
+            child.id = "cid"+id;
+            child.innerHTML = id;
+        }
+        if(child.id == "csel-1"){
+            child.id = "csel"+id;
+        }
+    }
+    
     return newnode;
 }
 function addcustomer(event){
@@ -43,21 +55,14 @@ function postapi(connectionstring,data,func){
 }
 function searchcustomer(){
     //delete all previous seach results
-    //console.log("search called")
     var children = document.getElementById("customerTable").children[0].children;
     console.log(document.getElementById("customerTable").children[0].children);
     console.log(children.length);
     for(var i = 0; i < children.length; i++){
         if(children[i].id != "cheader" & children[i].id != "c-1"){
-            console.log("going through");
-            console.log(children[i].id);
-            //console.log(children[i]);
-            //console.log("ID:"+children[i].id)
             children[i].remove();
             i--;
         }
-        console.log("not gone through");
-        console.log(children[i].id);
     }
     var nameel = document.getElementById("customerin").value;
     var data = {
