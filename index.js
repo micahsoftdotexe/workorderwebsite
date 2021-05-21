@@ -2,11 +2,12 @@
 function makenewcustomer(id, FirstName, LastName){
     var newnode = document.getElementById("c-1").cloneNode(true);
     newnode.id = "c"+id
-    newnode.childNodes.item("first-1").value = FirstName;
+    newnode.childNodes.item("first-1").innerHTML = FirstName;
+    console.log(newnode.childNodes.item("first-1").value)
     newnode.childNodes.item("first-1").id = "first"+id;
-    newnode.childNodes.item("first-2").value = LastName;
+    newnode.childNodes.item("first-2").innerHTML = LastName;
     newnode.childNodes.item("first-2").id = "last"+id;
-    newnode.childNodes.item("cid-1").value = id;
+    newnode.childNodes.item("cid-1").innerHTML = id;
     newnode.childNodes.item("cid-1").id = "cid"+id;
     newnode.childNodes.item("csel-1").id = "csel" + id;
 
@@ -14,25 +15,21 @@ function makenewcustomer(id, FirstName, LastName){
     return newnode;
 }
 function addcustomer(event){
-    console.log(this.readyState);
+    //console.log(this.readyState);
     if(this.readyState === 4 && this.status === 200){
-        console.log("in here");
-        //console.log("response test"+this.responseText);
         response = this.responseText;
         response = JSON.parse(response);
-        //return response;
-
-        // console.log(response.recordset);
-        // console.log("length "+Object.keys(response.recordset).length);
+        
         for(var i = 0; i < Object.keys(response.recordset).length;i++){
             var newnode = makenewcustomer(response.recordset[i].CustomerID,response.recordset[i].FirstName,response.recordset[i].LastName);
-            document.getElementById("customerTable").appendChild(newnode);
+            document.getElementById("customerTable").children[0].appendChild(newnode);
         }
         
 
     }
 }
 function postapi(connectionstring,data,func){
+    //console.log("called");
     const xhr = new XMLHttpRequest()
     
     //xhr.addEventListener('readystatechange',func);
@@ -46,13 +43,21 @@ function postapi(connectionstring,data,func){
 }
 function searchcustomer(){
     //delete all previous seach results
+    //console.log("search called")
     var children = document.getElementById("customerTable").children[0].children;
+    console.log(document.getElementById("customerTable").children[0].children);
+    console.log(children.length);
     for(var i = 0; i < children.length; i++){
         if(children[i].id != "cheader" & children[i].id != "c-1"){
+            console.log("going through");
+            console.log(children[i].id);
             //console.log(children[i]);
-            console.log("ID:"+children[i].id)
+            //console.log("ID:"+children[i].id)
             children[i].remove();
+            i--;
         }
+        console.log("not gone through");
+        console.log(children[i].id);
     }
     var nameel = document.getElementById("customerin").value;
     var data = {
@@ -60,10 +65,6 @@ function searchcustomer(){
     }
     var json = JSON.stringify(data);
     postapi('http://localhost:8080/customersearch',json,addcustomer);
-//    console.log(response);
-//    for(var i = 0; i < response["recordsets"].length; i++){
-//         var newnode = makenewcustomer(response.recordsets[i].CustomerID,response.recordsets[i].FirstName,response.recordsets[i].LastName);
-//         document.getElementById("customerTable").appendChild(newnode);
-//    }
+    
    
 }
