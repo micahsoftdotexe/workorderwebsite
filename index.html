@@ -14,27 +14,57 @@
         <th style="width:40%;">Select</th>
         <th style="width:60%;">First Name</th>
         <th style="width:40%;">Last Name</th>
-        <th style="width:40%;">ID</th>
+        <th style="width:40%;"name="id">ID</th>
     </tr> 
-    <tr id="c-1" class = "invisible" style="width:60%;">
-        <td><button id="csel-1"style="width:40%;"onclick="selcustomer(this)">+</td>
-        <td id="first-1"style="width:40%;">First</td>
-        <td id="last-1"style="width:40%;">Last</td>
-        <td id="cid-1"style="width:40%;">-1</td>
+    <tr id="c.-1" class = "invisible" style="width:60%;">
+        <td id="csel.-1"><button onclick="selectustomer(this)"name="select">+</td>
+        <td id="first.-1"style="width:40%;"name="firstname">First</td>
+        <td id="last.-1"style="width:40%;"name="lasname">Last</td>
+        <td id="cid.-1"style="width:40%;"name="id">-1</td>
     </tr>
 </table>
-<h2>Selected Customer</h2>
-<table id="customerselecttable">
+<h3>Selected Customer</h3>
+<table id="customerselectTable">
     <tr class="header" id="cheader">
-        <th style="width:40%;">Deselect</th>
+        <th>Deselect</th>
         <th style="width:60%;">First Name</th>
         <th style="width:40%;">Last Name</th>
         <th style="width:40%;">ID</th>
     </tr> 
-    <tr id="csel-1" class = "invisible" style="width:60%;">
-        <td><button id="csel-1"style="width:40%;"onclick="selcustomer(this)">+</td>
-        <td id="first-1"style="width:40%;">First</td>
-        <td id="last-1"style="width:40%;">Last</td>
-        <td id="cid-1"style="width:40%;">-1</td>
+    <tr id="cselected.-1" class = "invisible" style="width:60%;">
+        <td><button id="csel.-1"style="width:40%;"onclick="deselcustomer(this)">-</td>
+        <td id="first.-1"style="width:40%;">First</td>
+        <td id="last.-1"style="width:40%;">Last</td>
+        <td id="cid.-1"style="width:40%;">-1</td>
+    </tr>
+</table>
+<h2>Select Automobiles</h2>
+<table id="automobileTable">
+    <tr class="header" id="aheader">
+        <th style="width:40%;">Select</th>
+        <th style="width:60%;">Model</th>
+        <th style="width:60%;">Vin</th>
+        <th style="width:40%;"name="id">ID</th>
+    </tr>
+    <tr class="invisible" id = "a.-1">
+        <td id="asel.-1"><button onclick="selectustomer(this)"name="select">+</td>
+        <td id="amodel.-1" style="width:60%;">Model</td>
+        <td id="avin.-1" style="width:60%;">Vin</td>
+        <td id="aid.-1" style="width:60%;">ID</td>
+    </tr>
+</table>
+<h3>Selected Automobiles</h3>
+<table id="automobileselectTable">
+    <tr class="header" id="aheader">
+        <th style="width:40%;">Select</th>
+        <th style="width:60%;">Model</th>
+        <th style="width:60%;">Vin</th>
+        <th style="width:40%;"name="id">ID</th>
+    </tr>
+    <tr class="invisible" id = "a.-1">
+        <td id="asel.-1"><button onclick="selectustomer(this)"name="select">+</td>
+        <td id="amodel.-1" style="width:60%;">Model</td>
+        <td id="avin.-1" style="width:60%;">Vin</td>
+        <td id="aid.-1" style="width:60%;">ID</td>
     </tr>
 </table>
